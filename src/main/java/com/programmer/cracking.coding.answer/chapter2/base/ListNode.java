@@ -12,6 +12,14 @@ public class ListNode {
     public ListNode() {
     }
 
+    public ListNode(int data) {
+        this.data = data;
+    }
+
+    public ListNode(ListNode next) {
+        this.next = next;
+    }
+
     public ListNode(int data, ListNode next) {
         this.data = data;
         this.next = next;
