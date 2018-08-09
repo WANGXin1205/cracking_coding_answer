@@ -1,4 +1,4 @@
-package com.programmer.cracking_coding_answer;
+package com.programmer.cracking.coding.answer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
