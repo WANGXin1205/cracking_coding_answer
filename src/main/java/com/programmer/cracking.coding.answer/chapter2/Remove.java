@@ -31,6 +31,13 @@ public class Remove {
 
 
     public static void main(String[] args) {
-      // 这个应该正确，就不试验了
+        ListNode listNode6 = new ListNode(1, null);
+        ListNode listNode5 = new ListNode(2, listNode6);
+        ListNode listNode4 = new ListNode(4, listNode5);
+        ListNode listNode3 = new ListNode(3, listNode4);
+        ListNode listNode2 = new ListNode(2, listNode3);
+        ListNode listNode1 = new ListNode(1, listNode2);
+        Remove.removeNode(listNode2);
+        System.out.println(listNode2);
     }
 }
