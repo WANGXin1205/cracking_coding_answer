@@ -1,0 +1,53 @@
+function  draw_dynamic_path(city_coordinate,best_order_iteration,varargin)
+
+delay_time = 1;
+args = varargin;
+nargs = length(args);
+if ~isempty(args)
+    if ischar(args{1})
+        for t=1:2:nargs
+            switch args{t}
+                case 'delay_time'
+                    delay_time = args{t+1};
+            end
+        end
+    end
+end
+
+[iteration_time,~] = size(best_order_iteration);
+orders = [best_order_iteration,best_order_iteration(:,1)];
+order = orders(1,:);
+coordinate = city_coordinate(order,:);
+x = coordinate(:,1);
+y = coordinate(:,2);
+plot(x,y,'k-o','MarkerFaceColor','k')
+
+for t =2:iteration_time
+
+    order = orders(t,:);
+    if ~isequal(t,iteration_time)
+        past_order = orders(t-1,:);
+        if ~isequal(order,past_order)
+            coordinate = city_coordinate(order,:);
+            x = coordinate(:,1);
+            y = coordinate(:,2);
+            plot(x,y,'k-o','MarkerFaceColor','k')
+
+            pause(delay_time);
+
+            if ~isequal(t,iteration_time)
+                clf;
+            end
+
+        end
+
+    else
+        coordinate = city_coordinate(order,:);
+        x = coordinate(:,1);
+        y = coordinate(:,2);
+        plot(x,y,'k-o','MarkerFaceColor','k')
+    end
+
+end
+
+end
